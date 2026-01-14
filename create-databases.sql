@@ -1,0 +1,4 @@
+CREATE DATABASE account_db;
+CREATE DATABASE transaction_db;
+GRANT ALL PRIVILEGES ON DATABASE account_db TO admin;
+GRANT ALL PRIVILEGES ON DATABASE transaction_db TO admin;
