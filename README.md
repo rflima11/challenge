@@ -96,6 +96,11 @@ Se a UI não aparecer, verifique:
 
 Observação: toda comunicação entre serviços é por eventos Kafka — não há chamadas HTTP síncronas entre os serviços.
 
+Criação de conta:
+
+<img width="1362" height="640" alt="image" src="https://github.com/user-attachments/assets/c6d345e8-7d4f-488c-804f-57ba888c465f" />
+
+
 ## Decisões arquiteturais (resumo)
 
 - Arquitetura baseada em **Ports & Adapters (Hexagonal)**: casos de uso (domain) separados de adaptadores (JPA, Kafka, REST).
