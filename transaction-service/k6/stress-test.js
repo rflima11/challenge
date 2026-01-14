@@ -1,6 +1,8 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { Counter } from 'k6/metrics';
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+
 
 // --- CONFIGURAÇÕES DO TESTE ---
 export const options = {
@@ -26,7 +28,7 @@ const countDeposits = new Counter('valid_deposits_count');
 const countWithdrawals = new Counter('valid_withdrawals_count');
 
 // --- DADOS DO TESTE ---
-const ACCOUNT_ID = 'd290f1ee-6c54-4b01-90e6-d701748f0851';
+const ACCOUNT_ID = 'd78e0d7c-1e22-41b9-bb80-cdcd8d457c6a';
 const DEPOSIT_AMOUNT = 100.00;
 const WITHDRAW_AMOUNT = 50.00;
 
@@ -75,4 +77,10 @@ export default function () {
     }
 
     sleep(0.01);
+}
+
+export function handleSummary(data) {
+    return {
+        "summary.html": htmlReport(data),
+    };
 }

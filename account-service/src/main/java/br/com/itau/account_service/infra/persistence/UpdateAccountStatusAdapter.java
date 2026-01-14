@@ -4,6 +4,7 @@ import br.com.itau.account_service.application.port.out.UpdateAccountStatusPort;
 import br.com.itau.account_service.domain.entity.Account;
 import br.com.itau.account_service.infra.persistence.repository.JpaAccountRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class UpdateAccountStatusAdapter implements UpdateAccountStatusPort {
@@ -14,6 +15,7 @@ public class UpdateAccountStatusAdapter implements UpdateAccountStatusPort {
         this.jpaAccountRepository = jpaAccountRepository;
     }
 
+    @Transactional
     @Override
     public void execute(Account account) {
         jpaAccountRepository.updateStatus(account.getId(), account.getStatus());
